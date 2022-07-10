@@ -1,11 +1,11 @@
 # ML Pipeline
 
-[![CodeQL](https://github.com/qte77/ML/actions/workflows/codeql.yml/badge.svg)](https://github.com/qte77/ML/actions/workflows/codeql.yml)
-[![Lint Code Base](https://github.com/qte77/ML/actions/workflows/linter.yml/badge.svg)](https://github.com/qte77/ML/actions/workflows/linter.yml)
-[![Links (Fail Fast)](https://github.com/qte77/ML/actions/workflows/links-fail-fast.yml/badge.svg)](https://github.com/qte77/ML/actions/workflows/links-fail-fast.yml)
-[![example workflow](https://github.com/qte77/ML-HF-WnB/actions/workflows/gh-pages.yml/badge.svg)](https://github.com/qte77/ML/actions/workflows/gh-pages.yml)
+[![CodeQL](https://github.com/qte77/ML-HF-WnB-MVP/actions/workflows/codeql.yml/badge.svg)](https://github.com/qte77/ML-HF-WnB-MVP/actions/workflows/codeql.yml)
+[![Lint Code Base](https://github.com/qte77/ML-HF-WnB-MVP/actions/workflows/linter.yml/badge.svg)](https://github.com/qte77/ML-HF-WnB-MVP/actions/workflows/linter.yml)
+[![Links (Fail Fast)](https://github.com/qte77/ML-HF-WnB-MVP/actions/workflows/links-fail-fast.yml/badge.svg)](https://github.com/qte77/ML-HF-WnB-MVP/actions/workflows/links-fail-fast.yml)
 
-[DRAFT] of a pipeline using Hugging Face and Weights&Biases.
+
+[WIP] of a pipeline using Hugging Face and Weights&Biases.
 
 ----> **Not fully implemented** <----
 
@@ -15,6 +15,7 @@
 * [TODO](#todo-)
 * [Pipeline](#pipeline-)
 * [Install](#install-)
+* [Notes on ressources used](#notes-on-ressources-used-)
 
 ## Structure
 * `jupyter-exploration` Notebooks and nbconverted py to explore the used tools
@@ -92,16 +93,16 @@
 
 -->
 
-# Notes on ressources used [↑](#ml-pipeline)
+## Notes on ressources used [↑](#ml-pipeline)
 
-## Binder
+### Binder
 
 * Disclaimer: supported/run by/on Google Cloud (GCE), OVH, GESIS Notebooks, Turing Institute 
 * [Get badge](https://mybinder.org/)
 * [ReadTheDocs](https://mybinder.readthedocs.io/en/latest/)
 * [Binder on GH](https://github.com/jupyterhub/binder)
 
-## Jupyter
+### Jupyter
 
 * [Try Demo (GCE)](https://jupyter.org/try)
 * [Demo Notebooks (GCE)](https://mybinder.org/v2/gh/jupyterlab/jupyterlab-demo/HEAD?urlpath=lab/tree/demo)

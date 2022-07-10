@@ -1,3 +1,4 @@
+---
 #https://github.com/lycheeverse/lychee-action
 #https://github.com/marketplace/actions/lychee-broken-link-checker
 name: Links (Fail Fast)
@@ -18,3 +19,4 @@ jobs:
           fail: true
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+...
