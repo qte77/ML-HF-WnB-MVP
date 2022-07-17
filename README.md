@@ -26,9 +26,14 @@
 
 * **TODO**
 
+## Paradigms
+
+* Keep to low branching factor and single outcomes
+* Export complex functions into modules
+
 ## App structure [↑](#ml-pipeline)
 
-```python
+```
 /
 ├─ app/
 │  ├─ config/
