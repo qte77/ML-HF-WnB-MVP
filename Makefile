@@ -3,14 +3,17 @@
 #https://devhints.io/makefile
 
 APP_PATH := ./app
+IPYNB_PATH := $(APP_PATH)/ipynb
+RUNS_PATH := $(APP_PATH)/runs
 APP := $(APP_PATH)/app.py
 PAPER_CFG := $(APP_PATH)/config/papermill.yml
-IPYNB := $(APP:$(APP_PATH)=$(APP_PATH)/ipynb,.py=.ipynb)
-HELP := $(APP_PATH)
+HELP := $(APP_PATH)/README.md
+IPYNB := $(APP:$(APP_PATH)=$(IPYNB_PATH)/ipynb,.py=.ipynb)
+RUNS_CUR != date + "%y-%m-%d_%H-%M-%S"
 
 .PHONY: help
 
-help: README.md
+help: $(HELP)
 	@$(cat $^)
 
 py_to_nb: $(APP)
@@ -19,8 +22,11 @@ py_to_nb: $(APP)
 nb_to_py: $(IPYNB)
 	jupytext --to py:percent $(IPYNB)
 
+nb_to_md: $(IPYNB)
+	jupyter nbconvert --to markdown $(IPYNB)
+
 py_to_html: $(IPYNB)
-	jupytext --execute --to ipynb $(APP)
+	py_to_nb
 	jupyter nbconvert --to html $(IPYNB)
 
 #TODO add args
@@ -28,7 +34,8 @@ exec_py: $(APP)
 	python -m $(APP)
 
 exec_papermill: $(IPYNB)
-	papermill $(IPYNB) -f $(PAPER_CFG)
+	mkdir -p 
+	papermill -f $(PAPER_CFG) $(IPYNB) $(RUNS_PATH)/$(RUNS_CUR)
 
 exec_py_full: $(APP)
 	py_to_nb
@@ -42,10 +49,7 @@ train_py: $(APP)
 infer_py: $(APP)
 	exec_py
 
-# nb_to_md: $(IPYNB)
-# 	jupyter nbconvert --to markdown --execute $(IPYNB)
-
-# blog: nb_to_md
+# create_docs: nb_to_md
 # 	pandoc docs/header-includes.yaml the_annotated_transformer.md \
 # 		--katex=/usr/local/lib/node_modules/katex/dist/ \
 # 		--output=docs/index.html --to=html5 \
@@ -56,20 +60,24 @@ infer_py: $(APP)
 # 		--resource-path=/home/srush/Projects/annotated-transformer/ \
 # 		--indented-code-classes=nohighlight
 
-# clean_nb: 
+# clean_nb:
 #	rm -f $(IPYNB)
 
-# setup_app:s
+# setup_pkg:
 #	python -c setup.py
-
-setup_py:
-	python -m pip install -qr requirements.txt
-
-setup_py_dev:
-	python -m pip install -qr requirements-dev.txt
 
 # setup_conda:
 #	conda.env
+
+# https://pypi.org/project/pipfile/
+# setup_pipfile:
+#	pip install -p
+
+setup_req:
+	python -m pip install -qr requirements.txt
+
+setup_req_dev:
+	python -m pip install -qr requirements-dev.txt
 
 %: Makefile
 	help

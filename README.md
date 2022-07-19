@@ -4,19 +4,47 @@
 [![Lint Code Base](https://github.com/qte77/ML-HF-WnB-MVP/actions/workflows/linter.yml/badge.svg)](https://github.com/qte77/ML-HF-WnB-MVP/actions/workflows/linter.yml)
 [![Links (Fail Fast)](https://github.com/qte77/ML-HF-WnB-MVP/actions/workflows/links-fail-fast.yml/badge.svg)](https://github.com/qte77/ML-HF-WnB-MVP/actions/workflows/links-fail-fast.yml)
 
-[WIP] [DRAFT] App for benchmarking different BERT-Architectures using a pipeline with Hugging Face (HF) and Weights&Biases (WandB).
+**[WIP]** **[DRAFT]** App for benchmarking different BERT-Architectures using a pipeline with Hugging Face (HF) and Weights&Biases (WandB).
 
 **----> Not fully implemented <----**
 
+## Quickstart
+
+Explore the app with Jupyter notebooks.
+
+* [App](./ipynb/app.ipynb) &nbsp;
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/qte77/App-BERT-Benchmark/blob/main/ipynb/app.ipynb/HEAD)
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/qte77/App-BERT-Benchmark/blob/main/ipynb/app.ipynb)
+[![Open In Studio Lab](https://studiolab.sagemaker.aws/studiolab.svg)](https://studiolab.sagemaker.aws/import/github/qte77/App-BERT-Benchmark/blob/main/ipynb/app.ipynb)
+* [HF-WnB-PoC](./ipynb/HF-WnB-PoC.ipynb) &nbsp;
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/qte77/App-BERT-Benchmark/blob/main/ipynb/HF-WnB-PoC.ipynb/HEAD)
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/qte77/App-BERT-Benchmark/blob/main/ipynb/HF-WnB-PoC.ipynb)
+[![Open In Studio Lab](https://studiolab.sagemaker.aws/studiolab.svg)](https://studiolab.sagemaker.aws/import/github/qte77/App-BERT-Benchmark/blob/main/ipynb/HF-WnB-PoC.ipynb)
+* [HF-WnB-PyTorch-Sweeps-PoC](./ipynb/HF-WnB-PyTorch-Sweeps-PoC.ipynb) &nbsp;
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/qte77/App-BERT-Benchmark/blob/main/ipynb/HF-WnB-PyTorch-Sweeps-PoC.ipynb/HEAD)
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/qte77/App-BERT-Benchmark/blob/main/ipynb/HF-WnB-PyTorch-Sweeps-PoC.ipynb)
+[![Open In Studio Lab](https://studiolab.sagemaker.aws/studiolab.svg)](https://studiolab.sagemaker.aws/import/github/qte77/App-BERT-Benchmark/blob/main/ipynb/HF-WnB-PyTorch-Sweeps-PoC.ipynb)
+
 ## TOC
 
+* [Usage](#usage-)
 * [Purpose](#purpose-)
 * [Reason](#reason-)
 * [App structure](#app-structure-)
 * [Pipeline](#pipeline-)
-* [Usage](#usage-)
 * [TODO](#todo-)
 * [Rescources](#resources-)
+
+## Usage [↑](#ml-pipeline)
+
+### Run
+
+* **TODO** 
+
+### Credentials
+
+* Wandb
+* HF
 
 ## Purpose [↑](#ml-pipeline)
 
@@ -30,6 +58,23 @@
 
 * Keep to low branching factor and single outcomes
 * Export complex functions into modules
+* Aims for coding approach
+  * Behavior Driven Design (What should it do?)
+  * Test Driven Design (Does it do?)
+* Aims for code quality
+  * Works, i.e. passes tests which were written before 
+  * Modular and cohesive
+  * Separation of concerns and appropriate coupling
+  * Abstraction and information hiding
+* Aims for CI/CD
+  * Unit Testing
+  * Acceptance Testing
+  * Performance Testing
+  * Static Analysis
+  * Sign-offs
+  * Security Testing
+  * Scalability Testing
+  * Realeasable Outcome
 
 ## App structure [↑](#ml-pipeline)
 
@@ -65,16 +110,15 @@
 
 ## Pipeline [↑](#ml-pipeline)
 
-### Simple Jupyter pipeline with commercial vendors
+### Simple pipeline with commercial vendors
 
-* This is the implemented version in `jupyter-simple-pipeline`
-* Code-versioning with [Github](https://Github.com)
+* SCM with [Github](https://Github.com)
 * Logging, monitoring, alerting, model-versioning, -visualizing and -sweeping with [Weights & Biases](https://wandb.ai)
 * Pre-trained models and tokenizers as well as metrics and curated datasets from [Hugging Face](https://huggingface.co)
 * Explorative coding with [Jupyter-Notebooks](https://jupyter.org/)
 * Compute resources from [Google Colab](https://colab.research.google.com)
 
-<img src="./assets/ML-Pipeline-HF-WnB.draw.io.png" alt="ML-Pipeline-HF-WnB.draw.io.png" width="30%" height="30%" />
+<img src="./assets/ML-Pipeline-HF-WnB.draw.io.png" alt="ML-Pipeline-HF-WnB.draw.io.png" width="40%" height="40%" />
 
 ### Tools [↑](#ml-pipeline)
 
@@ -116,6 +160,8 @@
     * Compare metrics of transformer models
   * [ ] Prototype with Python converted to Jupyter
     * Create pipeline to avoid repetition and unforced errors
+    * Use `jupytext` and `papermill`
+    * `papermill` crashes Colab kernel, use StudioLab?
   * [ ] MVP with Python only
 * Project
   * [x] Load models, datasets, tokenizer and metrics from Hugging Face 
@@ -127,49 +173,17 @@
   * [ ] Get which loss is used in HF-BERT, can it be changed?
   * [ ] Test shuffle/batch train/eval data, e.g. train.shuffle(100).batch(32).repeat(2)
 * Development
+  * [ ] Use SemVer (Breaking.Feature.Patch) and CHANGELOG.md
   * [ ] Consistent typing and type hinting
   * [ ] Use pydantic for type hinting and errmsg
   * [ ] Consistent usage of `if` or `try` for features and catches
   * [ ] Try `arparse`
   * [ ] Try `Logger` instead of `print()`
-  * [ ] Test Pipfile as successor of requirements.txt
-  * [ ] Consistent use of pydoc for auto-gen sphinx-doc
+  * [ ] Test Pipfile with TOML as successor of requirements.txt
+  * [ ] Consistent use of pydoc for auto-gen `sphinx` or `pandoc`
   * [ ] Test Pipfile as successor of requirements.txt
   * [ ] Test `__init__.py` for pkg
   * [ ] Test `setup.py` for wheel
-
-## Usage [↑](#ml-pipeline)
-
-### Credentials
-
-* Wandb
-* HF
-
-### **TODO**
-
-<!--
-
-### Jupyter pipeline
-
-# Exploration with Jupyter notebooks
-
-## TOC
-
-* [Exploration](./README.md#exploration-)
-* [Notes on ressources used](./README.md#notes-on-ressources-used-)
-
-# Exploration  [↑](./README.md#exploration-with-jupyter-notebooks-)
-
-* [Sweep with Weights&Biases](./exploration/ipynb/HF-WnB-PyTorch-Sweeps.ipynb) &nbsp;
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/qte77/ML-HF-WnB/blob/main/ipynb/HF-WnB-PyTorch-Sweeps.ipynb/HEAD)
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/qte77/ML-HF-WnB/blob/main/exploration/ipynb/HF-WnB-PyTorch-Sweeps.ipynb)
-[![Open In Studio Lab](https://studiolab.sagemaker.aws/studiolab.svg)](https://studiolab.sagemaker.aws/import/github/qte77/ML-HF-WnB/blob/main/exploration/ipynb/HF-WnB-PyTorch-Sweeps.ipynb)
-* [PoC with Huggin Face and Weights&Biases](./exploration/ipynb/HF-WnB-PoC.ipynb) &nbsp;
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/qte77/ML-HF-WnB/blob/main/exploration/ipynb/HF-WnB-PoC.ipynb/HEAD)
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/qte77/ML/blob/main/exploration/ipynb/HF-WnB-PoC.ipynb)
-[![Open In Studio Lab](https://studiolab.sagemaker.aws/studiolab.svg)](https://studiolab.sagemaker.aws/import/github/qte77/ML/blob/main/exploration/ipynb/HF-WnB-PoC.ipynb)
-
--->
 
 ## Resources [↑](#ml-pipeline)
 
@@ -184,3 +198,6 @@
 * Jupytext and Papermill
   * [Automated Reports with Jupyter Notebooks (using Jupytext and Papermill)](https://github.com/CFMTech/jupytext_papermill_post/blob/master/README.md)
   * [Matthew Seal: Data and ETL with Notebooks in Papermill | PyData LA 2019](https://www.youtube.com/watch?v=7ER9tqiNack)
+* Development
+  * [Test Driven Development vs Behavior Driven Development](https://www.youtube.com/watch?v=Bq_oz7nCNUA)
+  * [How to Build a DEPLOYMENT PIPELINE? (Continuous Delivery)](https://www.youtube.com/watch?v=x9l6yw1PFbs)

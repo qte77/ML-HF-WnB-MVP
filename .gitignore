@@ -1,5 +1,7 @@
 .vscode/
 .wandb/
+runs/
+Pipfile.lock
 *__secret__*
 *.key.json
 *.key
