@@ -12,18 +12,20 @@
 
 Explore the app with Jupyter notebooks.
 
+** TODO ** fix mybinder.org links to build and launch
+
 * [App](./ipynb/app.ipynb) &nbsp;
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/qte77/App-BERT-Benchmark/blob/main/ipynb/app.ipynb/HEAD)
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/qte77/App-BERT-Benchmark/blob/main/ipynb/app.ipynb)
-[![Open In Studio Lab](https://studiolab.sagemaker.aws/studiolab.svg)](https://studiolab.sagemaker.aws/import/github/qte77/App-BERT-Benchmark/blob/main/ipynb/app.ipynb)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/qte77/App-BERT-Benchmark/blob/main/app/ipynb/app.ipynb/HEAD)
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/qte77/App-BERT-Benchmark/blob/main/app/ipynb/app.ipynb)
+[![Open In Studio Lab](https://studiolab.sagemaker.aws/studiolab.svg)](https://studiolab.sagemaker.aws/import/github/qte77/App-BERT-Benchmark/blob/main/app/ipynb/app.ipynb)
 * [HF-WnB-PoC](./ipynb/HF-WnB-PoC.ipynb) &nbsp;
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/qte77/App-BERT-Benchmark/blob/main/ipynb/HF-WnB-PoC.ipynb/HEAD)
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/qte77/App-BERT-Benchmark/blob/main/ipynb/HF-WnB-PoC.ipynb)
-[![Open In Studio Lab](https://studiolab.sagemaker.aws/studiolab.svg)](https://studiolab.sagemaker.aws/import/github/qte77/App-BERT-Benchmark/blob/main/ipynb/HF-WnB-PoC.ipynb)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/qte77/App-BERT-Benchmark/blob/main/app/ipynb/HF-WnB-PoC.ipynb)
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/qte77/App-BERT-Benchmark/blob/main/app/ipynb/HF-WnB-PoC.ipynb)
+[![Open In Studio Lab](https://studiolab.sagemaker.aws/studiolab.svg)](https://studiolab.sagemaker.aws/import/github/qte77/App-BERT-Benchmark/blob/main/app/ipynb/HF-WnB-PoC.ipynb)
 * [HF-WnB-PyTorch-Sweeps-PoC](./ipynb/HF-WnB-PyTorch-Sweeps-PoC.ipynb) &nbsp;
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/qte77/App-BERT-Benchmark/blob/main/ipynb/HF-WnB-PyTorch-Sweeps-PoC.ipynb/HEAD)
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/qte77/App-BERT-Benchmark/blob/main/ipynb/HF-WnB-PyTorch-Sweeps-PoC.ipynb)
-[![Open In Studio Lab](https://studiolab.sagemaker.aws/studiolab.svg)](https://studiolab.sagemaker.aws/import/github/qte77/App-BERT-Benchmark/blob/main/ipynb/HF-WnB-PyTorch-Sweeps-PoC.ipynb)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/qte77/App-BERT-Benchmark/blob/main/app/ipynb/HF-WnB-PyTorch-Sweeps-PoC.ipynb/HEAD)
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/qte77/App-BERT-Benchmark/blob/main/app/ipynb/HF-WnB-PyTorch-Sweeps-PoC.ipynb)
+[![Open In Studio Lab](https://studiolab.sagemaker.aws/studiolab.svg)](https://studiolab.sagemaker.aws/import/github/qte77/App-BERT-Benchmark/blob/main/app/ipynb/HF-WnB-PyTorch-Sweeps-PoC.ipynb)
 
 ## TOC
 
@@ -173,15 +175,17 @@ Explore the app with Jupyter notebooks.
   * [ ] Get which loss is used in HF-BERT, can it be changed?
   * [ ] Test shuffle/batch train/eval data, e.g. train.shuffle(100).batch(32).repeat(2)
 * Development
-  * [ ] Use SemVer (Breaking.Feature.Patch) and CHANGELOG.md
+  * [x] Use SemVer (Breaking.Feature.Patch) and CHANGELOG.md
+    * Using Added, Removed, Changed and Unreleased inside CHANGELOG
+  * [x] Test Pipfile as successor of requirements.txt
+    * Several advantages like auto-venv and combined prod/dev in one TOML
   * [ ] Consistent typing and type hinting
   * [ ] Use pydantic for type hinting and errmsg
   * [ ] Consistent usage of `if` or `try` for features and catches
   * [ ] Try `arparse`
   * [ ] Try `Logger` instead of `print()`
   * [ ] Test Pipfile with TOML as successor of requirements.txt
-  * [ ] Consistent use of pydoc for auto-gen `sphinx` or `pandoc`
-  * [ ] Test Pipfile as successor of requirements.txt
+  * [ ] Consistent use of pydoc for auto-gen `sphinx` or `pandoc` 
   * [ ] Test `__init__.py` for pkg
   * [ ] Test `setup.py` for wheel
 
