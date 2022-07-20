@@ -71,23 +71,27 @@ Explore the app with Jupyter notebooks.
 │  │  ├─ wandb-sweep.yml
 │  │  └─ huggingface.yml
 │  ├─ ipynb/
+│  │  ├─ [app.ipynb]
 │  │  ├─ HF-WnB-PoC.ipynb
 │  │  ├─ HF-WnB-PyTorch-Sweeps-PoC.ipynb
 │  │  └─ [converted-by-jupytext.ipynb]
 │  ├─ modules/
 │  │  ├─ [__init__.py]
+│  │  ├─ inferModel.py
 │  │  ├─ loadConfig.py
 │  │  ├─ loadSaveHF.py
-│  │  └─ convertNbToPm.py
+│  │  └─ trainModel.py
+│  ├─ .python-version
+│  ├─ __main__.py
 │  ├─ __version__.py
-│  ├─ app.py 
-│  ├─ requirements.txt
-│  ├─ requirements-dev.tx
-│  ├─ [Pipfile_converted_from_reqs]
+│  ├─ app.py
+│  ├─ Pipfile
 │  └─ [Pipfile.lock]
 ├─ assets/
 │  └─ ML-Pipeline-HF-WnB.draw.io.png
-├─ .python-version
+├─ .gitignore
+├─ CHANGELOG.md
+├─ LICENSE
 ├─ Makefile
 ├─ README.md
 └─ [Setup.py]
@@ -163,11 +167,10 @@ Explore the app with Jupyter notebooks.
   * [x] Test Pipfile as successor of requirements.txt
     * Several advantages like auto-venv and combined prod/dev in one TOML
   * [ ] Consistent typing and type hinting
-  * [ ] Use pydantic for type hinting and errmsg
+  * [ ] [ ] Use [`pydantic`](https://pydantic-docs.helpmanual.io/) or [`traitlets`](https://pypi.org/project/traitlets/) for type hinting or strong typing
   * [ ] Consistent usage of `if` or `try` for features and catches
   * [ ] Try `arparse`
   * [ ] Try `Logger` instead of `print()`
-  * [ ] Test Pipfile with TOML as successor of requirements.txt
   * [ ] Consistent use of pydoc for auto-gen `sphinx` or `pandoc` 
   * [ ] Test `__init__.py` for pkg
   * [ ] Test `setup.py` for wheel
