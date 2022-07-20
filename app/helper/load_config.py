@@ -1,7 +1,5 @@
 #!/usr/bin/env python
-'''
-Load and return yaml configuration files
-'''
+"""Load and return yaml configuration files"""
 from os.path import exists
 from typing import Union
 from yaml import safe_load
@@ -15,9 +13,10 @@ cfg_defaults = [
 ]
 
 def get_config(cfg_name: str) -> Union[dict[str, object], Exception]:
-    '''
-    Parses config yaml and returns config objects
-    '''
+    """
+    Parses config yaml and returns config objects.
+    TODO test hidra to get rid of this method
+    """
     if cfg_defaults.__contains__(cfg_name):
         cfg = cfg_defaults[cfg_name]
     else:

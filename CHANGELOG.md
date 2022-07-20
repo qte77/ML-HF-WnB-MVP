@@ -19,6 +19,18 @@ Types of changes:
 - Things to come
 - Move to new version section if completed
 
+## [0.4.0] - 2022-07-21
+
+### Added
+
+- `Pipenv` and modified `jupytext`labels in `Makefile`
+
+### Changed
+
+- Separated modules into `helper` and `model`
+- Pydoc comments from `'` to `"`
+- Generated current `app.ipynb` with label `py_to_nb` from `Makefile`
+
 ## [0.3.0] - 2022-07-20
 
 ### Added

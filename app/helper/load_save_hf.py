@@ -1,12 +1,12 @@
 #!/usr/bin/env python
-'''
+"""
 Local load and save components from Hugging Face.
 If not available, download from Hugging Face.
 - Models
 - Datasets
 - Tokenizer
 - Metrics 
-'''
+"""
 from os import makedirs
 from os.path import exists
 from typing import Union
@@ -22,9 +22,9 @@ def load_and_save_model(
     model_dir: str,
     num_labels: int
 ) -> Union[AutoModelHF, Exception]:
-    '''
+    """
     Load and save models from and to '{model_dir}/{model_name}' with 'num_labels'.
-    '''
+    """
     model_dir = f'{model_dir}/{model_name}'
     if not exists(model_dir):
         print(f'Downloading and saving model to {model_dir}')
@@ -49,9 +49,9 @@ def load_and_save_dataset(
     dataset_dir: str,
     dataset_config: str = None
 ) -> Union[load_dataset, Exception]:
-    '''
+    """
     Load and save models from and to <dataset_dir>/<dataset_name>/[config_name].
-    '''
+    """
     dataset_full_name = f'{dataset_name}/{dataset_config}'
     dataset_dir = f'{dataset_dir}/{dataset_full_name}'
 
@@ -79,9 +79,9 @@ def _download_dataset(
     dataset_name: str,
     dataset_config: str = None
 ) -> Union[load_dataset, Exception]:
-    '''
+    """
     Download and return <dataset_name> with [dataset_config] from Hugging Face.
-    '''
+    """
     try:
         if dataset_config == None:
             return load_dataset(dataset_name)
@@ -94,9 +94,9 @@ def load_and_save_tokenizer(
     model_name: str,
     tokenizer_dir: str
 ) -> Union[AutoTokenizerHF, Exception]:
-    '''
+    """
     Load and save tokenizer from and to <tokenizer_dir>/<model_name>.
-    '''
+    """
     tokenizer_dir = f'{tokenizer_dir}/{model_name}'
     if not exists(tokenizer_dir):
         print(f'Downloading and saving tokenizer to {tokenizer_dir}')
@@ -120,10 +120,10 @@ def load_and_save_metrics(
     metrics_to_load: list[str],
     metrics_dir: str = None
 ) -> dict[str, dict[str, Union[load_metric, Exception]]]:
-    '''
+    """
     Load and save metrics with Metrics Builder Scripts from and to <metrics_dir>/<metric_name>.
     TODO local save metrics NOT IMPLEMENTED YET
-    '''
+    """
     metrics_loaded = {}
     metrics_load_errors = {}
 

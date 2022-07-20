@@ -16,9 +16,7 @@
 # # BERT Benchmarking
 
 # %%
-'''
-
-'''
+"""Entrypoint of the app."""
 
 # %% [markdown]
 # ## Pre-Requisites
@@ -27,7 +25,8 @@
 # ### Import modules
 from sys import exit
 
-from modules.load_save_hf import load_and_save_model, load_and_save_dataset, \
+from _version import __version__
+from helper.load_save_hf import load_and_save_model, load_and_save_dataset, \
     load_and_save_tokenizer, load_and_save_metrics
 
 # %% [markdown]

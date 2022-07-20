@@ -4,30 +4,36 @@
 
 APP_PATH := ./app
 IPYNB_PATH := $(APP_PATH)/ipynb
+MD_PATH := $(APP_PATH)/md
+HTML_PATH := $(APP_PATH)/html
 RUNS_PATH := $(APP_PATH)/runs
 APP := $(APP_PATH)/app.py
-PAPER_CFG := $(APP_PATH)/config/papermill.yml
+PIPENV := $(APP_PATH)/Pipenv
+PAPERMILL := $(APP_PATH)/config/papermill.yml
 HELP := $(APP_PATH)/README.md
-IPYNB := $(APP:$(APP_PATH)=$(IPYNB_PATH)/ipynb,.py=.ipynb)
+IPYNB := $(APP:$(APP_PATH)=$(IPYNB_PATH),.py=.ipynb)
+MD := $(APP:$(APP_PATH)=$(MD_PATH),.py=.md)
+HTML := $(APP:$(APP_PATH)=$(HTML_PATH),.py=.html)
 RUNS_CUR != date + "%y-%m-%d_%H-%M-%S"
 
-.PHONY: help
-
-help: $(HELP)
-	@$(cat $^)
-
 py_to_nb: $(APP)
-	jupytext --to ipynb $(APP)
+	mkdir -p $(IPYNB_PATH)
+	jupytext --to ipynb $(APP) --test-strict
+	jupytext --to ipynb $(APP) -o $(IPYNB)
 
 nb_to_py: $(IPYNB)
-	jupytext --to py:percent $(IPYNB)
+	jupytext --to py:percent $(IPYNB) --test-strict
+	jupytext --to py:percent $(IPYNB) -o $(APP)
 
-nb_to_md: $(IPYNB)
+nb_to_md: $(MD)
+	mkdir -p $(MD_PATH)
 	jupyter nbconvert --to markdown $(IPYNB)
 
-py_to_html: $(IPYNB)
-	py_to_nb
-	jupyter nbconvert --to html $(IPYNB)
+#TODO install jupyter for nbconvert?
+# py_to_html: $(IPYNB)
+# 	py_to_nb
+# 	mkdir -p $(HTML_PATH)
+# 	jupyter nbconvert --to html $(IPYNB) -o $(HTML)
 
 #TODO add args
 exec_py: $(APP)
@@ -35,7 +41,7 @@ exec_py: $(APP)
 
 exec_papermill: $(IPYNB)
 	mkdir -p 
-	papermill -f $(PAPER_CFG) $(IPYNB) $(RUNS_PATH)/$(RUNS_CUR)
+	papermill -f $(PAPERMILL) $(IPYNB) $(RUNS_PATH)/$(RUNS_CUR)
 
 exec_py_full: $(APP)
 	py_to_nb
@@ -73,11 +79,16 @@ infer_py: $(APP)
 # setup_pipfile:
 #	pip install -p
 
-setup_req:
-	python -m pip install -qr requirements.txt
+setup_req: $(PIPENV)
+	pipenv install $(APP_PATH)
 
-setup_req_dev:
-	python -m pip install -qr requirements-dev.txt
+setup_req_dev: $(PIPENV)
+	pipenv install $(APP_PATH)
+
+.PHONY: help
+
+help: $(HELP)
+	@$(cat $^)
 
 %: Makefile
 	help

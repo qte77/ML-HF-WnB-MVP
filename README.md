@@ -67,20 +67,24 @@ Explore the app with Jupyter notebooks.
 /
 ├─ app/
 │  ├─ config/
+│  │  ├─ huggingface.yml
 │  │  ├─ papermill.yml
-│  │  ├─ wandb-sweep.yml
-│  │  └─ huggingface.yml
+│  │  └─ wandb-sweep.yml
+│  ├─ helper/
+│  │  ├─ [__init__.py]
+│  │  ├─ load_config.py
+│  │  └─ load_save_hf.py
+│  ├─ [html/]
 │  ├─ ipynb/
 │  │  ├─ [app.ipynb]
 │  │  ├─ HF-WnB-PoC.ipynb
 │  │  ├─ HF-WnB-PyTorch-Sweeps-PoC.ipynb
 │  │  └─ [converted-by-jupytext.ipynb]
-│  ├─ modules/
+│  ├─ [md/]
+│  ├─ model/
 │  │  ├─ [__init__.py]
-│  │  ├─ inferModel.py
-│  │  ├─ loadConfig.py
-│  │  ├─ loadSaveHF.py
-│  │  └─ trainModel.py
+│  │  ├─ infer_model.py
+│  │  └─ train_model.py
 │  ├─ .python-version
 │  ├─ __main__.py
 │  ├─ __version__.py
@@ -90,6 +94,7 @@ Explore the app with Jupyter notebooks.
 ├─ assets/
 │  └─ ML-Pipeline-HF-WnB.draw.io.png
 ├─ .gitignore
+├─ .gitmessage
 ├─ CHANGELOG.md
 ├─ LICENSE
 ├─ Makefile
@@ -178,7 +183,7 @@ Explore the app with Jupyter notebooks.
   * [x] Adopt [`CHANGELOG.md`](https://keepachangelog.com/)
     * Using `Added`, `Removed`, `Changed` and `Unreleased`
     * Also recommended: `Deprecated`, `Fixed` and `Security`
-  * [x] Adopt [Semantic commit messages](https://www.conventionalcommits.org/)
+  * [x] Adopt [semantic commit messages](https://www.conventionalcommits.org/)
     * Purposful add human and machine readable meaning to commit messages
   * [ ] Adhere to [Docker BP](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
   * [ ] Adhere to BP from [The Hitchhiker's Guide to Python!](https://docs.python-guide.org/)
