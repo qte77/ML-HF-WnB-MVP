@@ -1,5 +1,9 @@
+#!/usr/bin/env python
 
-main = launch_new_instance = app.launch_instance
+class App():
+    print()
+
+main = launch_new_instance = App.launch_instance
 
 if __name__ == "__main__":
     main()

@@ -4,9 +4,11 @@
 [![Lint Code Base](https://github.com/qte77/ML-HF-WnB-MVP/actions/workflows/linter.yml/badge.svg)](https://github.com/qte77/ML-HF-WnB-MVP/actions/workflows/linter.yml)
 [![Links (Fail Fast)](https://github.com/qte77/ML-HF-WnB-MVP/actions/workflows/links-fail-fast.yml/badge.svg)](https://github.com/qte77/ML-HF-WnB-MVP/actions/workflows/links-fail-fast.yml)
 
-**[WIP]** **[DRAFT]** App for benchmarking different BERT-Architectures using a pipeline with Hugging Face (HF) and Weights&Biases (WandB).
+App for benchmarking different BERT-Architectures using a pipeline with Hugging Face (HF) and Weights&Biases (WandB).
 
-**----> Not fully implemented <----**
+## Status
+
+**[WIP]** **[DRAFT]** **----> Not fully implemented <----**
 
 ## Quickstart
 
@@ -22,7 +24,7 @@ Explore the app with Jupyter notebooks.
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/qte77/App-BERT-Benchmark/blob/main/app/ipynb/HF-WnB-PoC.ipynb)
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/qte77/App-BERT-Benchmark/blob/main/app/ipynb/HF-WnB-PoC.ipynb)
 [![Open In Studio Lab](https://studiolab.sagemaker.aws/studiolab.svg)](https://studiolab.sagemaker.aws/import/github/qte77/App-BERT-Benchmark/blob/main/app/ipynb/HF-WnB-PoC.ipynb)
-* [HF-WnB-PyTorch-Sweeps-PoC](./ipynb/HF-WnB-PyTorch-Sweeps-PoC.ipynb) &nbsp;
+* [HF-WnB-PyTorch-Sweeps-PoC](./app/ipynb/HF-WnB-PyTorch-Sweeps-PoC.ipynb) &nbsp;
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/qte77/App-BERT-Benchmark/blob/main/app/ipynb/HF-WnB-PyTorch-Sweeps-PoC.ipynb/HEAD)
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/qte77/App-BERT-Benchmark/blob/main/app/ipynb/HF-WnB-PyTorch-Sweeps-PoC.ipynb)
 [![Open In Studio Lab](https://studiolab.sagemaker.aws/studiolab.svg)](https://studiolab.sagemaker.aws/import/github/qte77/App-BERT-Benchmark/blob/main/app/ipynb/HF-WnB-PyTorch-Sweeps-PoC.ipynb)
@@ -30,23 +32,26 @@ Explore the app with Jupyter notebooks.
 ## TOC
 
 * [Usage](#usage-)
+<!-- * [Install](#install-) -->
 * [Purpose](#purpose-)
 * [Reason](#reason-)
-* [App structure](#app-structure-)
-* [Pipeline](#pipeline-)
+<!-- * [Paradigms](#paradigms-) -->
+* [App Structure](#app-structure-)
+* [App Details](#app-details-)
 * [TODO](#todo-)
+<!-- * [Inspirations](#inspirations-) -->
 * [Rescources](#resources-)
 
 ## Usage [↑](#ml-pipeline)
 
 ### Run
 
-* **TODO** 
+* **TODO**
 
 ### Credentials
 
-* Wandb
-* HF
+* Wandb **TODO**
+* HF **TODO**
 
 ## Purpose [↑](#ml-pipeline)
 
@@ -55,28 +60,6 @@ Explore the app with Jupyter notebooks.
 ## Reason [↑](#ml-pipeline)
 
 * **TODO**
-
-## Paradigms
-
-* Keep to low branching factor and single outcomes
-* Export complex functions into modules
-* Aims for coding approach
-  * Behavior Driven Design (What should it do?)
-  * Test Driven Design (Does it do?)
-* Aims for code quality
-  * Works, i.e. passes tests which were written before 
-  * Modular and cohesive
-  * Separation of concerns and appropriate coupling
-  * Abstraction and information hiding
-* Aims for CI/CD
-  * Unit Testing
-  * Acceptance Testing
-  * Performance Testing
-  * Static Analysis
-  * Sign-offs
-  * Security Testing
-  * Scalability Testing
-  * Realeasable Outcome
 
 ## App structure [↑](#ml-pipeline)
 
@@ -110,7 +93,7 @@ Explore the app with Jupyter notebooks.
 └─ [Setup.py]
 ```
 
-## Pipeline [↑](#ml-pipeline)
+## App Details [↑](#ml-pipeline)
 
 ### Simple pipeline with commercial vendors
 

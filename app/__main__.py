@@ -1,5 +1,4 @@
-import sys
-
+from sys import exit
 from .app import main
 
-sys.exit(main())
+exit(main())
