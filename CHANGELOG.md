@@ -17,7 +17,17 @@ Types of changes:
 ## [Unreleased]
 
 - Things to come
-- Move to version section if completed
+- Move to new version section if completed
+
+## [0.3.0] - 2022-07-20
+
+### Added
+
+- Logic to  module `load_config`
+
+### Changed
+
+- Minor changes and renames
 
 ## [0.2.0] - 2022-07-20
 

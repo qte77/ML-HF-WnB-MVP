@@ -26,7 +26,8 @@
 # %%
 # ### Import modules
 from sys import exit
-from modules.loadSaveHF import load_and_save_model, load_and_save_dataset, \
+
+from modules.load_save_hf import load_and_save_model, load_and_save_dataset, \
     load_and_save_tokenizer, load_and_save_metrics
 
 # %% [markdown]

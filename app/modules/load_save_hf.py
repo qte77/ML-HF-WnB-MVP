@@ -9,15 +9,19 @@ If not available, download from Hugging Face.
 '''
 from os import makedirs
 from os.path import exists
-from transformer.AutoModelForSequenceClassification import from_pretrained as AutoModelHF
-from transformer.AutoTokenizer import from_pretrained as AutoTokenizerHF
+from typing import Union
+
+from transformer.AutoModelForSequenceClassification import \
+    from_pretrained as AutoModelHF
+from transformer.AutoTokenizer import \
+    from_pretrained as AutoTokenizerHF
 from datasets import load_dataset, load_metric
 
 def load_and_save_model(
     model_name: str,
     model_dir: str,
     num_labels: int
-) -> object:
+) -> Union[AutoModelHF, Exception]:
     '''
     Load and save models from and to '{model_dir}/{model_name}' with 'num_labels'.
     '''
@@ -44,7 +48,7 @@ def load_and_save_dataset(
     dataset_name: str,
     dataset_dir: str,
     dataset_config: str = None
-) -> object:
+) -> Union[load_dataset, Exception]:
     '''
     Load and save models from and to <dataset_dir>/<dataset_name>/[config_name].
     '''
@@ -74,7 +78,7 @@ def load_and_save_dataset(
 def _download_dataset(
     dataset_name: str,
     dataset_config: str = None
-) -> object:
+) -> Union[load_dataset, Exception]:
     '''
     Download and return <dataset_name> with [dataset_config] from Hugging Face.
     '''
@@ -89,7 +93,7 @@ def _download_dataset(
 def load_and_save_tokenizer(
     model_name: str,
     tokenizer_dir: str
-) -> object:
+) -> Union[AutoTokenizerHF, Exception]:
     '''
     Load and save tokenizer from and to <tokenizer_dir>/<model_name>.
     '''
@@ -115,7 +119,7 @@ def load_and_save_tokenizer(
 def load_and_save_metrics(
     metrics_to_load: list[str],
     metrics_dir: str = None
-) -> dict:
+) -> dict[str, dict[str, Union[load_metric, Exception]]]:
     '''
     Load and save metrics with Metrics Builder Scripts from and to <metrics_dir>/<metric_name>.
     TODO local save metrics NOT IMPLEMENTED YET
@@ -126,9 +130,9 @@ def load_and_save_metrics(
     for metric in metrics_to_load:
         print(f'Downloading builder script for "{metric}".')
         try:
-            metrics_loaded['metric'] = load_metric(metric)
+            metrics_loaded[metric] = load_metric(metric)
         except Exception as e:
             print(str(e))
-            metrics_load_errors['metric'] = e
+            metrics_load_errors[metric] = e
     
     return { 'metrics': metrics_loaded, 'errors': metrics_load_errors }
