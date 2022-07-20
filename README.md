@@ -162,18 +162,26 @@ Explore the app with Jupyter notebooks.
   * [ ] Get which loss is used in HF-BERT, can it be changed?
   * [ ] Test shuffle/batch train/eval data, e.g. train.shuffle(100).batch(32).repeat(2)
 * Development
-  * [x] Use SemVer (Breaking.Feature.Patch) and CHANGELOG.md
-    * Using Added, Removed, Changed and Unreleased inside CHANGELOG
   * [x] Test Pipfile as successor of requirements.txt
     * Several advantages like auto-venv and combined prod/dev in one TOML
   * [ ] Consistent typing and type hinting
-  * [ ] [ ] Use [`pydantic`](https://pydantic-docs.helpmanual.io/) or [`traitlets`](https://pypi.org/project/traitlets/) for type hinting or strong typing
+  * [ ] Use [`pydantic`](https://pydantic-docs.helpmanual.io/) or [`traitlets`](https://pypi.org/project/traitlets/) for type hinting or strong typing
   * [ ] Consistent usage of `if` or `try` for features and catches
   * [ ] Try `arparse`
   * [ ] Try `Logger` instead of `print()`
   * [ ] Consistent use of pydoc for auto-gen `sphinx` or `pandoc` 
   * [ ] Test `__init__.py` for pkg
   * [ ] Test `setup.py` for wheel
+* Best Practices
+  * [x] Adopt [SemVer](https://semver.org/)
+    * Using MAJOR.MINOR.PATCH (Breaking.Feature.Patch)
+  * [x] Adopt [`CHANGELOG.md`](https://keepachangelog.com/)
+    * Using `Added`, `Removed`, `Changed` and `Unreleased`
+    * Also recommended: `Deprecated`, `Fixed` and `Security`
+  * [x] Adopt [Semantic commit messages](https://www.conventionalcommits.org/)
+    * Purposful add human and machine readable meaning to commit messages
+  * [ ] Adhere to [Docker BP](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
+  * [ ] Adhere to BP from [The Hitchhiker's Guide to Python!](https://docs.python-guide.org/)
 
 ## Resources [↑](#ml-pipeline)
 

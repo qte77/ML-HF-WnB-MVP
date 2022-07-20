@@ -1,6 +1,7 @@
 .vscode/
 .wandb/
 runs/
+__pycache__
 Pipfile.lock
 *__secret__*
 *.key.json
