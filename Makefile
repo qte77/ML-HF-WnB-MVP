@@ -1,22 +1,26 @@
 # https://github.com/harvardnlp/annotated-transformer/blob/master/Makefile
 # https://makefiletutorial.com/
 # https://devhints.io/makefile
+
 .PHONY: help
 .DEFAULT_GOAL := help
 
+HELP_PATH := .
+PIPENV_PATH := .
 APP_PATH := ./app
 IPYNB_PATH := $(APP_PATH)/ipynb
 MD_PATH := $(APP_PATH)/md
 HTML_PATH := $(APP_PATH)/html
 RUNS_PATH := $(APP_PATH)/runs
+
+HELP := $(HELP_PATH)/README.md
+PIPFILE := $(PIPENV_PATH)/Pipfile
 APP := $(APP_PATH)/app.py
-PIPENV_PATH := .
-PIPFILE_PATH := $(PIPENV_PATH)/Pipfile
 PAPERMILL := $(APP_PATH)/config/papermill.yml
-HELP := $(APP_PATH)/README.md
 IPYNB := $(APP:$(APP_PATH)=$(IPYNB_PATH),.py=.ipynb)
 MD := $(APP:$(APP_PATH)=$(MD_PATH),.py=.md)
 HTML := $(APP:$(APP_PATH)=$(HTML_PATH),.py=.html)
+
 RUNS_CUR != date + "%y-%m-%d_%H-%M-%S"
 PY_BIN != /usr/bin/env python
 
@@ -74,11 +78,11 @@ coverage:
 	cat htmlcov/index.html
 
 # https://pypi.org/project/pipfile/
-setup_local: $(PY_BIN) $(PIPFILE_PATH)
+setup_local: $(PY_BIN) $(PIPFILE)
 	$(PY_BIN) -m pipenv install $(PIPENV_PATH)
 	run_local
 
-setup_local_dev: $(PY_BIN) $(PIPFILE_PATH)
+setup_local_dev: $(PY_BIN) $(PIPFILE)
 	$(PY_BIN) -m pipenv install -d $(PIPENV_PATH)
 
 # TODO run in local venv train/infer mode
@@ -90,4 +94,4 @@ help: $(HELP)
 	@$(cat $^)
 
 %: Makefile
-	help
+	helps
