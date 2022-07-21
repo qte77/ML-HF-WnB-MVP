@@ -50,7 +50,7 @@ def load_and_save_dataset(
     dataset_config: str = None
 ) -> Union[load_dataset, Exception]:
     """
-    Load and save models from and to <dataset_dir>/<dataset_name>/[config_name].
+    Load and save datasets from and to <dataset_dir>/<dataset_name>/[config_name]
     """
     dataset_full_name = f'{dataset_name}/{dataset_config}'
     dataset_dir = f'{dataset_dir}/{dataset_full_name}'
@@ -80,7 +80,7 @@ def _download_dataset(
     dataset_config: str = None
 ) -> Union[load_dataset, Exception]:
     """
-    Download and return <dataset_name> with [dataset_config] from Hugging Face.
+    Download and return <dataset_name> with [dataset_config] from Hugging Face
     """
     try:
         if dataset_config == None:
@@ -95,14 +95,16 @@ def load_and_save_tokenizer(
     tokenizer_dir: str
 ) -> Union[AutoTokenizerHF, Exception]:
     """
-    Load and save tokenizer from and to <tokenizer_dir>/<model_name>.
+    Load and save tokenizer from and to
+        <tokenizer_dir>/<model_name>
     """
     tokenizer_dir = f'{tokenizer_dir}/{model_name}'
     if not exists(tokenizer_dir):
         print(f'Downloading and saving tokenizer to {tokenizer_dir}')
         try:
             makedirs(tokenizer_dir)
-            tokenizer = AutoTokenizerHF(model_name, use_fast=True, truncation=True, padding=True)
+            tokenizer = AutoTokenizerHF(model_name, use_fast=True, \
+                truncation=True, padding=True)
             tokenizer.save_pretrained(tokenizer_dir)
             return tokenizer
         except Exception as e:
@@ -121,7 +123,7 @@ def load_and_save_metrics(
     metrics_dir: str = None
 ) -> dict[str, dict[str, Union[load_metric, Exception]]]:
     """
-    Load and save metrics with Metrics Builder Scripts from and to <metrics_dir>/<metric_name>.
+    Load and save metrics with Metrics Builder Scripts from and to <metrics_dir>/<metric_name>
     TODO local save metrics NOT IMPLEMENTED YET
     """
     metrics_loaded = {}

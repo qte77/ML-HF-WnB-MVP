@@ -16,7 +16,7 @@
 # # BERT Benchmarking
 
 # %%
-"""Entrypoint of the app."""
+"""Entrypoint of the app"""
 
 # %% [markdown]
 # ## Pre-Requisites
@@ -40,8 +40,7 @@ from helper.load_save_hf import load_and_save_model, load_and_save_dataset, \
 
 # %%
 class App():
-    '''
-    '''
+    """App object"""
 
 # main = launch_new_instance = App.launch_instance
 
