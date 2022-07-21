@@ -14,8 +14,6 @@ App for benchmarking different BERT-Architectures using a pipeline with Hugging 
 
 Explore the app with Jupyter notebooks.
 
-**TODO** fix mybinder.org links to build and launch
-
 * [App](./ipynb/app.ipynb) &nbsp;
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/qte77/App-BERT-Benchmark/HEAD?urlpath=lab/tree/app/ipynb/app.ipynb)
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/qte77/App-BERT-Benchmark/blob/main/app/ipynb/app.ipynb)
@@ -167,7 +165,7 @@ Explore the app with Jupyter notebooks.
 * Explorative prototyping with [Jupyter-Notebooks](https://jupyter.org/)
 * Compute resources from [Google Colab](https://colab.research.google.com)
 
-  <img src="./assets/ML-Pipeline-HF-WnB.draw.io.png" alt="ML-Pipeline-HF-WnB.draw.io.png" width="40%" height="40%" />
+  <img src="./assets/ML-Pipeline-HF-WnB.draw.io.png" alt="ML-Pipeline-HF-WnB.draw.io.png" width="50%" height="50%" />
 
 ### Tools used
 
