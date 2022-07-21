@@ -11,7 +11,7 @@ name = "pypi"
 [packages]
 datasets = "==2.3.2"
 transformers = "==4.19.4"
-wandb = "==0.12.18"
+wandb = "==0.12.21"
 # torch = "==1.11.0+cu113"
 # numpy = "==1.21.6"
 
