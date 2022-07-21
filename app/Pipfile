@@ -1,7 +1,7 @@
-#https://pypi.org/project/pipfile/
-#https://pipenv.pypa.io/en/latest/advanced/
-#https://realpython.com/pipenv-guide/
-#usage: pipenv install -r requirements.txt
+# https://pypi.org/project/pipfile/
+# https://pipenv.pypa.io/en/latest/advanced/
+# https://realpython.com/pipenv-guide/
+# usage: pipenv install -r requirements.txt
 
 [[source]]
 url = "https://pypi.org/simple"
@@ -9,16 +9,23 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-#torch = "==1.11.0+cu113"
-#numpy = "==1.21.6"
 datasets = "==2.3.2"
 transformers = "==4.19.4"
 wandb = "==0.12.18"
+# torch = "==1.11.0+cu113"
+# numpy = "==1.21.6"
 
 [dev-packages]
 black = "==19.10b0"
 flake8 = "==4.0.1"
 isort = "==5.10.1"
+pytest = "==7.1.2"
+coverage = "==6.4.2"
+tox = "==3.25.1"
+punch = "==0.0.1"
+"punch.py" = "==2.0.0"
+watchdog = "==2.1.9"
+# sphinx = "==5.0.2"
 
 [requires]
 python_version = "3.9"

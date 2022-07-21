@@ -19,11 +19,27 @@ Types of changes:
 - Things to come
 - Move to new version section if completed
 
+## [0.5.0] - 2022-07-21
+
+### Added
+
+- .github/ISSUE_TEMPLATE.md
+
+### Changed
+
+- ./.gitignore to complement for dev-packages
+- ./Makefile to add labels for testing and local setup and run with `pipenv`
+- ./app/Pipfile to add dev-packages
+
+### Removed
+
+- ./app/.python-version because Pipfile `[requires]` specific python version
+
 ## [0.4.0] - 2022-07-21
 
 ### Added
 
-- `Pipenv` and modified `jupytext`labels in `Makefile`
+- `Pipenv` and modified `jupytext` labels in `Makefile`
 
 ### Changed
 

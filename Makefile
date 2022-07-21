@@ -1,6 +1,8 @@
-#https://github.com/harvardnlp/annotated-transformer/blob/master/Makefile
-#https://makefiletutorial.com/
-#https://devhints.io/makefile
+# https://github.com/harvardnlp/annotated-transformer/blob/master/Makefile
+# https://makefiletutorial.com/
+# https://devhints.io/makefile
+.PHONY: help
+.DEFAULT_GOAL := help
 
 APP_PATH := ./app
 IPYNB_PATH := $(APP_PATH)/ipynb
@@ -8,13 +10,14 @@ MD_PATH := $(APP_PATH)/md
 HTML_PATH := $(APP_PATH)/html
 RUNS_PATH := $(APP_PATH)/runs
 APP := $(APP_PATH)/app.py
-PIPENV := $(APP_PATH)/Pipenv
+APP_PIPFILE := $(APP_PATH)/Pipfile
 PAPERMILL := $(APP_PATH)/config/papermill.yml
 HELP := $(APP_PATH)/README.md
 IPYNB := $(APP:$(APP_PATH)=$(IPYNB_PATH),.py=.ipynb)
 MD := $(APP:$(APP_PATH)=$(MD_PATH),.py=.md)
 HTML := $(APP:$(APP_PATH)=$(HTML_PATH),.py=.html)
 RUNS_CUR != date + "%y-%m-%d_%H-%M-%S"
+PY_BIN != /usr/bin/env python
 
 py_to_nb: $(APP)
 	mkdir -p $(IPYNB_PATH)
@@ -29,13 +32,13 @@ nb_to_md: $(MD)
 	mkdir -p $(MD_PATH)
 	jupyter nbconvert --to markdown $(IPYNB)
 
-#TODO install jupyter for nbconvert?
+# TODO install jupyter for nbconvert?
 # py_to_html: $(IPYNB)
 # 	py_to_nb
 # 	mkdir -p $(HTML_PATH)
 # 	jupyter nbconvert --to html $(IPYNB) -o $(HTML)
 
-#TODO add args
+# TODO add args
 exec_py: $(APP)
 	python -m $(APP)
 
@@ -46,45 +49,41 @@ exec_nb_full: $(APP)
 	py_to_nb
 	exec_papermill
 
-#TODO add train mode arg
+# TODO add train mode arg
 train_py: $(APP)
 	exec_py
 
-#TODO add infer mode arg
+# TODO add infer mode arg
 infer_py: $(APP)
 	exec_py
-
-# create_docs: nb_to_md
-# 	pandoc docs/header-includes.yaml the_annotated_transformer.md \
-# 		--katex=/usr/local/lib/node_modules/katex/dist/ \
-# 		--output=docs/index.html --to=html5 \
-# 		--css=docs/github.min.css \
-# 		--css=docs/tufte.css \
-# 		--no-highlight --self-contained \
-# 		--metadata pagetitle="The Annotated Transformer" \
-# 		--resource-path=/home/srush/Projects/annotated-transformer/ \
-# 		--indented-code-classes=nohighlight
 
 # clean_nb:
 #	rm -f $(IPYNB)
 
-# setup_pkg:
-#	python -c setup.py
+lint:
+	flake8 app tests
 
-# setup_conda:
-#	conda.env
+test:
+	pytest -svv tests
+
+coverage:
+	coverage run --source pytest_workshop -m pytest
+	coverage report -m
+	coverage html
+	cat htmlcov/index.html
 
 # https://pypi.org/project/pipfile/
-# setup_pipfile:
-#	pip install -p
+setup_local: $(PY_BIN) $(APP_PIPFILE)
+	$(PY_BIN) -m pipenv install $(APP_PATH)
+	run_local
 
-setup_local: $(PIPENV)
-	pipenv install $(APP_PATH)
+setup_local_dev: $(PY_BIN) $(APP_PIPFILE)
+	$(PY_BIN) -m pipenv install -d $(APP_PATH)
 
-setup_local_dev: $(PIPENV)
-	pipenv install $(APP_PATH)
-
-.PHONY: help
+# TODO run in local venv train/infer mode
+# run_local: $(PY_BIN)
+# #	$(PY_BIN) -m pipenv shell
+#  $(PY_BIN) -m pipenv run
 
 help: $(HELP)
 	@$(cat $^)
