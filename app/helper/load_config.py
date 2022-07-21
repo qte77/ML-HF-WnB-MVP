@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """Load and return yaml configuration files"""
 from os.path import exists
-from typing import Union
+from typing import Any, Union
 from yaml import safe_load
 
 #TODO export config in files.yml to separate from program flow?
@@ -12,7 +12,9 @@ cfg_defaults = [
     'sweep', 'sweep-wandb'
 ]
 
-def get_config(cfg_name: str) -> Union[dict[str, object], Exception]:
+def get_config(
+    cfg_name: str
+) -> Union[dict[str, Any], Exception]:
     """
     Parses config yaml and returns config objects.
     TODO test hidra to get rid of this method

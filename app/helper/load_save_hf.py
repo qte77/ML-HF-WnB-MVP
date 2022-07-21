@@ -20,10 +20,10 @@ from datasets import load_dataset, load_metric
 def load_and_save_model(
     model_name: str,
     model_dir: str,
-    num_labels: int
+    num_labels: int = None
 ) -> Union[AutoModelHF, Exception]:
     """
-    Load and save models from and to '{model_dir}/{model_name}' with 'num_labels'.
+    Load and save models from and to '<model_dir>/<model_name>' with '[num_labels]'.
     """
     model_dir = f'{model_dir}/{model_name}'
     if not exists(model_dir):
