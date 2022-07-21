@@ -10,7 +10,8 @@ MD_PATH := $(APP_PATH)/md
 HTML_PATH := $(APP_PATH)/html
 RUNS_PATH := $(APP_PATH)/runs
 APP := $(APP_PATH)/app.py
-APP_PIPFILE := $(APP_PATH)/Pipfile
+PIPENV_PATH := .
+PIPFILE_PATH := $(PIPENV_PATH)/Pipfile
 PAPERMILL := $(APP_PATH)/config/papermill.yml
 HELP := $(APP_PATH)/README.md
 IPYNB := $(APP:$(APP_PATH)=$(IPYNB_PATH),.py=.ipynb)
@@ -73,12 +74,12 @@ coverage:
 	cat htmlcov/index.html
 
 # https://pypi.org/project/pipfile/
-setup_local: $(PY_BIN) $(APP_PIPFILE)
-	$(PY_BIN) -m pipenv install $(APP_PATH)
+setup_local: $(PY_BIN) $(PIPFILE_PATH)
+	$(PY_BIN) -m pipenv install $(PIPENV_PATH)
 	run_local
 
-setup_local_dev: $(PY_BIN) $(APP_PIPFILE)
-	$(PY_BIN) -m pipenv install -d $(APP_PATH)
+setup_local_dev: $(PY_BIN) $(PIPFILE_PATH)
+	$(PY_BIN) -m pipenv install -d $(PIPENV_PATH)
 
 # TODO run in local venv train/infer mode
 # run_local: $(PY_BIN)
