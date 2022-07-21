@@ -40,10 +40,9 @@ exec_py: $(APP)
 	python -m $(APP)
 
 exec_papermill: $(IPYNB)
-	mkdir -p 
 	papermill -f $(PAPERMILL) $(IPYNB) $(RUNS_PATH)/$(RUNS_CUR)
 
-exec_py_full: $(APP)
+exec_nb_full: $(APP)
 	py_to_nb
 	exec_papermill
 
@@ -79,10 +78,10 @@ infer_py: $(APP)
 # setup_pipfile:
 #	pip install -p
 
-setup_req: $(PIPENV)
+setup_local: $(PIPENV)
 	pipenv install $(APP_PATH)
 
-setup_req_dev: $(PIPENV)
+setup_local_dev: $(PIPENV)
 	pipenv install $(APP_PATH)
 
 .PHONY: help
