@@ -78,6 +78,9 @@ coverage:
 	cat htmlcov/index.html
 
 # https://pypi.org/project/pipfile/
+create_pipfile_lock: $(PY_BIN) $(PIPFILE)
+	$(PY_BIN) -m pipenv lock $(PIPENV_PATH)
+
 setup_local: $(PY_BIN) $(PIPFILE)
 	$(PY_BIN) -m pipenv install $(PIPENV_PATH)
 	run_local

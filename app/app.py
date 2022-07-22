@@ -97,9 +97,10 @@ from helper.load_save_hf import load_and_save_model, \
 
 # %%
 # ###
-log_level = DEBUG
-log_format = '[%(levelname)s] %(asctime)s - %(process)d - %(message)s'
-basicConfig(level = log_level, format = log_format)
+basicConfig(
+    level = DEBUG,
+    format = '[%(levelname)s] %(asctime)s - %(process)d - %(message)s'
+)
 
 # %% [markdown]
 # ## Papermill parameters

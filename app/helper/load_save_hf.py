@@ -13,9 +13,16 @@ TODO use @property and @<property>.setter to avoid get/set()
 from os import makedirs
 from os.path import exists
 from typing import Union
+from logging import basicConfig, DEBUG, \
+    error #, debug, info, warning, critical
 
 from transformers import AutoModel, AutoTokenizer
 from datasets import load_dataset, load_metric
+
+basicConfig(
+    level = DEBUG,
+    format = '[%(levelname)s] %(asctime)s - %(process)d - %(message)s'
+)
 
 def load_and_save_model(
     model_name: str,
@@ -30,18 +37,23 @@ def load_and_save_model(
         print(f'Downloading and saving model to {model_dir}')
         try:
             makedirs(model_dir)
-            modelobj = AutoModel.from_pretrained(model_name, num_labels = num_labels)
+            modelobj = AutoModel.from_pretrained(
+                model_name,
+                num_labels = num_labels,
+                device_map="auto",
+                torch_dtype = "auto"
+            )
             modelobj.save_pretrained(model_dir)
             return modelobj
         except Exception as e:
-            print(str(e))
+            error(str(e))
             return e
     else:
         print(f'Loading local model from {model_dir}')
         try:
             return AutoModel.from_pretrained(model_dir)
         except Exception as e:
-            print(str(e))
+            error(str(e))
             return e
 
 def load_and_save_dataset(
@@ -63,7 +75,7 @@ def load_and_save_dataset(
             datasetobj.save_to_disk(dataset_dir)
             return datasetobj
         except Exception as e:
-            print(str(e))
+            error(str(e))
             return e
     else:
         print(f'Loading local dataset from "{dataset_dir}".')
@@ -72,7 +84,7 @@ def load_and_save_dataset(
             #load_dataset(path = dataset_dir, data_files = data_files)
             return load_dataset(path = dataset_dir)
         except Exception as e:
-            print(str(e))
+            error(str(e))
             return e
 
 def _download_dataset(
@@ -108,14 +120,14 @@ def load_and_save_tokenizer(
             tokenizer.save_pretrained(tokenizer_dir)
             return tokenizer
         except Exception as e:
-            print(str(e))
+            error(str(e))
             return e
     else:
         print(f'Loading local tokenizer from {tokenizer_dir}')
         try:
             return AutoTokenizer.from_pretrained(tokenizer_dir)
         except Exception as e:
-            print(str(e))
+            error(str(e))
             return e
 
 def load_and_save_metrics(
@@ -134,7 +146,7 @@ def load_and_save_metrics(
         try:
             metrics_loaded[metric] = load_metric(metric)
         except Exception as e:
-            print(str(e))
+            error(str(e))
             metrics_load_errors[metric] = e
     
     return { 'metrics': metrics_loaded, 'errors': metrics_load_errors }
