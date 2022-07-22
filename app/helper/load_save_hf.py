@@ -14,17 +14,14 @@ from os import makedirs
 from os.path import exists
 from typing import Union
 
-from transformer.AutoModelForSequenceClassification import \
-    from_pretrained as AutoModelHF
-from transformer.AutoTokenizer import \
-    from_pretrained as AutoTokenizerHF
+from transformers import AutoModel, AutoTokenizer
 from datasets import load_dataset, load_metric
 
 def load_and_save_model(
     model_name: str,
     model_dir: str,
     num_labels: int = None
-) -> Union[AutoModelHF, Exception]:
+) -> Union[AutoModel, Exception]:
     """
     Load and save models from and to '<model_dir>/<model_name>' with '[num_labels]'.
     """
@@ -33,7 +30,7 @@ def load_and_save_model(
         print(f'Downloading and saving model to {model_dir}')
         try:
             makedirs(model_dir)
-            modelobj = AutoModelHF(model_name, num_labels = num_labels)
+            modelobj = AutoModel.from_pretrained(model_name, num_labels = num_labels)
             modelobj.save_pretrained(model_dir)
             return modelobj
         except Exception as e:
@@ -42,7 +39,7 @@ def load_and_save_model(
     else:
         print(f'Loading local model from {model_dir}')
         try:
-            return AutoModelHF(model_dir)
+            return AutoModel.from_pretrained(model_dir)
         except Exception as e:
             print(str(e))
             return e
@@ -96,7 +93,7 @@ def _download_dataset(
 def load_and_save_tokenizer(
     model_name: str,
     tokenizer_dir: str
-) -> Union[AutoTokenizerHF, Exception]:
+) -> Union[AutoTokenizer, Exception]:
     """
     Load and save tokenizer from and to
         <tokenizer_dir>/<model_name>
@@ -106,7 +103,7 @@ def load_and_save_tokenizer(
         print(f'Downloading and saving tokenizer to {tokenizer_dir}')
         try:
             makedirs(tokenizer_dir)
-            tokenizer = AutoTokenizerHF(model_name, use_fast=True, \
+            tokenizer = AutoTokenizer.from_pretrained(model_name, use_fast=True, \
                 truncation=True, padding=True)
             tokenizer.save_pretrained(tokenizer_dir)
             return tokenizer
@@ -116,7 +113,7 @@ def load_and_save_tokenizer(
     else:
         print(f'Loading local tokenizer from {tokenizer_dir}')
         try:
-            return AutoTokenizerHF(tokenizer_dir)
+            return AutoTokenizer.from_pretrained(tokenizer_dir)
         except Exception as e:
             print(str(e))
             return e
