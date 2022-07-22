@@ -7,10 +7,6 @@ runs/
 *.key.json
 *.key
 
-# pipenv
-# TODO check if .lock should be commiteds
-Pipfile.lock
-
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

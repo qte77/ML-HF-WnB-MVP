@@ -19,6 +19,20 @@ Types of changes:
 - Things to come
 - Move to new version section if completed
 
+## [0.6.0] - 2022-07-22
+
+### Added
+
+- Pipfile.lock for reproducible environment
+- pyproject.toml as one file tools config and future packaging, e.g. with Poetry
+
+### Changed
+
+- .gitignore to not exclude pipfile.lock anymore
+- README.md added develop TODOs
+- app/app.py `logger`added for transition from `print()`
+- app/helper/load_save_hf.py added TODO for decorators and get/setattr()
+
 ## [0.5.0] - 2022-07-21
 
 ### Added

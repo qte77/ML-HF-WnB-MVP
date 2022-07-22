@@ -223,7 +223,12 @@ Explore the app with Jupyter notebooks.
 * Development
   * [x] Test Pipfile as successor of requirements.txt
     * Several advantages like auto-venv and combined prod/dev in one TOML
+  * [ ] No default mutable arguments
   * [ ] Consistent typing and type hinting
+  * [ ] Use comprehension for list, dict, set, gen if appropriate
+  * [ ] Explore `setattr()` and `getattr()` for dynamic values
+  * [ ] EXplore generators with `yield` for one result at a time into mem
+  * [ ] Use `isinstance()` and `is`
   * [ ] Use [`pydantic`](https://pydantic-docs.helpmanual.io/) or [`traitlets`](https://pypi.org/project/traitlets/) for type hinting or strong typing
   * [ ] Consistent usage of `if` or `try` for features and catches
   * [ ] Try `arparse`

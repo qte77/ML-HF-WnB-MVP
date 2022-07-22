@@ -24,10 +24,17 @@
 # %%
 # ### Import modules
 from sys import exit
+from logging import basicConfig, debug, info, error, DEBUG
 
 from _version import __version__
 from helper.load_save_hf import load_and_save_model, load_and_save_dataset, \
     load_and_save_tokenizer, load_and_save_metrics
+
+# %%
+# ###
+log_level = DEBUG
+log_format = '[%(levelname)s] %(asctime)s - %(message)s'
+basicConfig(level = log_level, format = log_format)
 
 # %% [markdown]
 # ## Papermill parameters

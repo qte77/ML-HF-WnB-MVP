@@ -5,7 +5,10 @@ If not available, download from Hugging Face.
 - Models
 - Datasets
 - Tokenizer
-- Metrics 
+- Metrics
+
+TODO repeated code into decorator for sep of concerns
+TODO use @property and @<property>.setter to avoid get/set()
 """
 from os import makedirs
 from os.path import exists
